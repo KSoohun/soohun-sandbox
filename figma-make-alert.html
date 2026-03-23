@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alert Component - Ontada Design System - WCAG 2.2 Compliant</title>
+    
+    <!-- Nunito Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Design System Tokens - Ontada Design System */
+        :root {
+            --font-size: 16px;
+            
+            /* Typography variables */
+            --text-2xl: 24px;
+            --text-xl: 22px;
+            --text-lg: 20px;
+            --text-base: 16px;
+            --text-sm: 14px;
+            --text-xs: 12px;
+            --font-weight-regular: 400;
+            --font-weight-semibold: 600;
+            --font-weight-bold: 700;
+            --font-family-nunito: 'Nunito', sans-serif;
+            
+            /* Color variables */
+            --background: rgba(255, 255, 255, 1);
+            --foreground: rgba(24, 24, 24, 1);
+            --card: rgba(255, 255, 255, 1);
+            --card-foreground: rgba(30, 57, 78, 1);
+            --popover: rgba(255, 255, 255, 1);
+            --popover-foreground: rgba(98, 115, 134, 1);
+            --primary: rgba(0, 124, 193, 1);
+            --primary-foreground: rgba(255, 255, 255, 1);
+            --secondary: rgba(255, 255, 255, 1);
+            --secondary-foreground: rgba(0, 124, 193, 1);
+            --muted: rgba(242, 246, 250, 1);
+            --muted-foreground: rgba(128, 189, 224, 1);
+            --accent: rgba(247, 201, 30, 1);
+            --accent-foreground: rgba(24, 24, 24, 1);
+            --destructive: rgba(249, 233, 232, 1);
+            --destructive-foreground: rgba(197, 48, 38, 1);
+            --border: rgba(186, 197, 204, 1);
+            --input: rgba(255, 255, 255, 1);
+            --input-background: rgba(255, 255, 255, 1);
+            --ring: rgba(0, 124, 193, 1);
+            
+            /* Border radius */
+            --radius: 4px;
+            --radius-button: 6px;
+            --radius-card: 8px;
+        }
+        
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            font-size: var(--font-size);
+        }
+        
+        body {
+            background: var(--background);
+            color: var(--foreground);
+            font-family: var(--font-family-nunito);
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        /* Typography */
+        h1 {
+            font-family: var(--font-family-nunito);
+            font-size: var(--text-2xl);
+            font-weight: var(--font-weight-semibold);
+            line-height: 1.5;
+            margin-bottom: 0.5rem;
+        }
+        
+        h2 {
+            font-family: var(--font-family-nunito);
+            font-size: var(--text-xl);
+            font-weight: var(--font-weight-bold);
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        
+        h3 {
+            font-family: var(--font-family-nunito);
+            font-size: var(--text-lg);
+            font-weight: var(--font-weight-bold);
+            line-height: 1.5;
+            margin-bottom: 0.75rem;
+        }
+        
+        h4 {
+            font-family: var(--font-family-nunito);
+            font-size: var(--text-base);
+            font-weight: var(--font-weight-semibold);
+            line-height: 1.5;
+        }
+        
+        p, span {
+            font-family: var(--font-family-nunito);
+            font-size: var(--text-sm);
+            font-weight: var(--font-weight-regular);
+            line-height: 1.5;
+        }
+        
+        /* Container */
+        .container {
+            min-height: 100vh;
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .section {
+            margin-bottom: 3rem;
+        }
+        
+        .space-y-3 > * + * {
+            margin-top: 0.75rem;
+        }
+        
+        .space-y-4 > * + * {
+            margin-top: 1rem;
+        }
+        
+        .space-y-6 > * + * {
+            margin-top: 1.5rem;
+        }
+        
+        /* Alert Component Styles */
+        .alert {
+            position: relative;
+            width: 100%;
+            border-width: 2px;
+            border-style: solid;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            border-radius: var(--radius-button);
+            transition: all 0.2s ease;
+        }
+        
+        .alert:focus-within {
+            outline: 2px solid var(--ring);
+            outline-offset: 2px;
+        }
+        
+        /* Alert Variants */
+        .alert--info {
+            background-color: rgba(230, 242, 255, 1);
+            border-color: rgba(0, 124, 193, 0.4);
+            color: rgba(0, 62, 96, 1);
+        }
+        
+        .alert--info .alert__icon {
+            color: var(--primary);
+        }
+        
+        .alert--success {
+            background-color: rgba(232, 245, 237, 1);
+            border-color: rgba(72, 164, 99, 0.4);
+            color: rgba(27, 77, 37, 1);
+        }
+        
+        .alert--success .alert__icon {
+            color: rgba(72, 164, 99, 1);
+        }
+        
+        .alert--warning {
+            background-color: rgba(255, 250, 235, 1);
+            border-color: rgba(247, 201, 30, 0.5);
+            color: rgba(102, 82, 12, 1);
+        }
+        
+        .alert--warning .alert__icon {
+            color: rgba(197, 161, 24, 1);
+        }
+        
+        .alert--error {
+            background-color: var(--destructive);
+            border-color: rgba(197, 48, 38, 0.4);
+            color: var(--destructive-foreground);
+        }
+        
+        .alert--error .alert__icon {
+            color: var(--destructive-foreground);
+        }
+        
+        .alert__icon {
+            flex-shrink: 0;
+            width: 20px;
+            height: 20px;
+            margin-top: 2px;
+        }
+        
+        .alert__content {
+            flex: 1;
+            min-width: 0;
+        }
+        
+        .alert__title {
+            font-family: var(--font-family-nunito);
+            font-size: var(--text-base);
+            font-weight: var(--font-weight-semibold);
+            line-height: 1.5;
+            margin-bottom: 0.25rem;
+        }
+        
+        .alert__description {
+            font-family: var(--font-family-nunito);
+            font-size: var(--text-sm);
+            font-weight: var(--font-weight-regular);
+            line-height: 1.5;
+            opacity: 0.9;
+        }
+        
+        .alert__dismiss {
+            flex-shrink: 0;
+            background: transparent;
+            border: none;
+            border-radius: var(--radius);
+            padding: 0.375rem;
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+            margin: -2px -4px 0 0;
+        }
+        
+        .alert__dismiss:hover {
+            background-color: rgba(0, 0, 0, 0.05);
+        }
+        
+        .alert__dismiss:focus {
+            outline: 2px solid var(--ring);
+            outline-offset: 0;
+        }
+        
+        .alert__dismiss-icon {
+            width: 16px;
+            height: 16px;
+            display: block;
+        }
+        
+        /* Card styles for info sections */
+        .card {
+            background: var(--card);
+            border: 2px solid var(--border);
+            border-radius: var(--radius-card);
+            padding: 1.5rem;
+        }
+        
+        .card--muted {
+            background: var(--muted);
+            border: none;
+        }
+        
+        .info-grid {
+            display: grid;
+            gap: 0.75rem;
+        }
+        
+        .info-row {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .info-label {
+            color: var(--primary);
+            font-weight: var(--font-weight-semibold);
+            min-width: 180px;
+            flex-shrink: 0;
+        }
+        
+        .token-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .color-swatch {
+            display: inline-block;
+            width: 16px;
+            height: 16px;
+            border-radius: 2px;
+            border: 1px solid var(--border);
+            vertical-align: middle;
+            margin-right: 0.5rem;
+        }
+        
+        code {
+            font-family: 'Courier New', monospace;
+            font-size: var(--text-xs);
+            background: rgba(0, 0, 0, 0.05);
+            padding: 0.125rem 0.375rem;
+            border-radius: var(--radius);
+        }
+        
+        pre {
+            background: var(--muted);
+            padding: 1rem;
+            border-radius: var(--radius);
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+            font-size: var(--text-xs);
+            line-height: 1.6;
+        }
+        
+        .text-muted {
+            color: var(--popover-foreground);
+        }
+        
+        /* Hidden class for dismissed alerts */
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="section space-y-3">
+            <h1>Alert Component - Ontada Design System</h1>
+            <p class="text-muted">
+                A comprehensive alert component with full WCAG 2.2 accessibility support, using Ontada Design System tokens.
+            </p>
+        </div>
+
+        <!-- Alert Variants -->
+        <div class="section space-y-6">
+            <h2>Alert Variants</h2>
+            
+            <!-- Info Alert -->
+            <div class="space-y-3">
+                <h3>Info Alert</h3>
+                <div class="alert alert--info" role="alert" aria-live="polite" aria-atomic="true" aria-label="info alert">
+                    <svg class="alert__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="12" y1="16" x2="12" y2="12"></line>
+                        <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                    </svg>
+                    <div class="alert__content">
+                        <div class="alert__title">Information</div>
+                        <div class="alert__description">
+                            This is an informational alert using the primary color from the Ontada Design System. It provides helpful context or additional details to guide users.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Success Alert -->
+            <div class="space-y-3">
+                <h3>Success Alert</h3>
+                <div class="alert alert--success" role="alert" aria-live="polite" aria-atomic="true" aria-label="success alert">
+                    <svg class="alert__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                        <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                    </svg>
+                    <div class="alert__content">
+                        <div class="alert__title">Success</div>
+                        <div class="alert__description">
+                            Your changes have been saved successfully. All data has been persisted to the database and is now available across all systems.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Warning Alert -->
+            <div class="space-y-3">
+                <h3>Warning Alert</h3>
+                <div class="alert alert--warning" role="alert" aria-live="assertive" aria-atomic="true" aria-label="warning alert">
+                    <svg class="alert__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                        <line x1="12" y1="9" x2="12" y2="13"></line>
+                        <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                    </svg>
+                    <div class="alert__content">
+                        <div class="alert__title">Warning</div>
+                        <div class="alert__description">
+                            Please review your settings before proceeding. Some configurations may need your attention to ensure proper system functionality.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Error Alert -->
+            <div class="space-y-3">
+                <h3>Error Alert</h3>
+                <div class="alert alert--error" role="alert" aria-live="assertive" aria-atomic="true" aria-label="error alert">
+                    <svg class="alert__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10"></circle>
+                        <line x1="15" y1="9" x2="9" y2="15"></line>
+                        <line x1="9" y1="9" x2="15" y2="15"></line>
+                    </svg>
+                    <div class="alert__content">
+                        <div class="alert__title">Error</div>
+                        <div class="alert__description">
+                            An error occurred while processing your request. Please check your input and try again. If the problem persists, contact support.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Dismissible Alerts -->
+        <div class="section space-y-6">
+            <h2>Dismissible Alerts</h2>
+            <p class="text-muted">
+                These alerts can be dismissed by clicking the close button or pressing the Escape key when focused.
+            </p>
+            
+            <div id="dismissible-info" class="alert alert--info" role="alert" aria-live="polite" aria-atomic="true" aria-label="info alert" tabindex="0">
+                <svg class="alert__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="12" y1="16" x2="12" y2="12"></line>
+                    <line x1="12" y1="8" x2="12.01" y2="8"></line>
+                </svg>
+                <div class="alert__content">
+                    <div class="alert__title">Dismissible Information</div>
+                    <div class="alert__description">
+                        This alert can be dismissed by clicking the X button or pressing Escape (when the alert has keyboard focus).
+                    </div>
+                </div>
+                <button type="button" class="alert__dismiss" aria-label="Dismiss alert" onclick="dismissAlert('dismissible-info')">
+                    <svg class="alert__dismiss-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="dismissible-warning" class="alert alert--warning" role="alert" aria-live="assertive" aria-atomic="true" aria-label="warning alert" tabindex="0">
+                <svg class="alert__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+                    <line x1="12" y1="9" x2="12" y2="13"></line>
+                    <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                </svg>
+                <div class="alert__content">
+                    <div class="alert__title">Session Expiring Soon</div>
+                    <div class="alert__description">
+                        Your session will expire in 5 minutes. Please save your work to avoid losing any changes.
+                    </div>
+                </div>
+                <button type="button" class="alert__dismiss" aria-label="Dismiss alert" onclick="dismissAlert('dismissible-warning')">
+                    <svg class="alert__dismiss-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+
+            <div id="dismissible-error" class="alert alert--error" role="alert" aria-live="assertive" aria-atomic="true" aria-label="error alert" tabindex="0">
+                <svg class="alert__icon" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <circle cx="12" cy="12" r="10"></circle>
+                    <line x1="15" y1="9" x2="9" y2="15"></line>
+                    <line x1="9" y1="9" x2="15" y2="15"></line>
+                </svg>
+                <div class="alert__content">
+                    <div class="alert__title">Action Required</div>
+                    <div class="alert__description">
+                        Your account requires immediate attention. Please update your payment information to continue using the service.
+                    </div>
+                </div>
+                <button type="button" class="alert__dismiss" aria-label="Dismiss alert" onclick="dismissAlert('dismissible-error')">
+                    <svg class="alert__dismiss-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <line x1="18" y1="6" x2="6" y2="18"></line>
+                        <line x1="6" y1="6" x2="18" y2="18"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+
+        <!-- Without Icons -->
+        <div class="section space-y-6">
+            <h2>Without Icons</h2>
+            <p class="text-muted">
+                Alerts can be displayed without icons for a cleaner, more minimal appearance.
+            </p>
+            
+            <div class="alert alert--info" role="alert" aria-live="polite" aria-atomic="true" aria-label="info alert">
+                <div class="alert__content">
+                    <div class="alert__title">Simple Information</div>
+                    <div class="alert__description">
+                        This alert doesn't display an icon, providing a cleaner look when visual emphasis isn't needed.
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert--success" role="alert" aria-live="polite" aria-atomic="true" aria-label="success alert">
+                <div class="alert__content">
+                    <div class="alert__description">
+                        Form submitted successfully without an icon or title.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Accessibility Features -->
+        <div class="section">
+            <div class="card card--muted space-y-4">
+                <h2>Accessibility Features (WCAG 2.2)</h2>
+                <div class="info-grid">
+                    <div class="info-row">
+                        <span class="info-label">Semantic HTML:</span>
+                        <span>Uses proper heading hierarchy and semantic elements</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">ARIA Roles:</span>
+                        <span>role="alert" for immediate user attention</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Live Regions:</span>
+                        <span>aria-live="polite" (info/success) or "assertive" (warning/error)</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Atomic Announcements:</span>
+                        <span>aria-atomic="true" ensures full alert is read</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Keyboard Support:</span>
+                        <span>Dismissible alerts can be closed with Escape key</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Focus Management:</span>
+                        <span>Dismiss button is keyboard accessible with visible focus ring</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Color Contrast:</span>
+                        <span>All text meets WCAG AA standards (4.5:1 minimum)</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Design Tokens:</span>
+                        <span>Uses Ontada Design System CSS custom properties</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="info-label">Typography:</span>
+                        <span>Nunito font family with design system font sizes and weights</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Design System Tokens Used -->
+        <div class="section">
+            <div class="card space-y-4">
+                <h2>Design System Tokens Used</h2>
+                <div class="token-grid">
+                    <div class="space-y-3">
+                        <h4 style="color: var(--primary);">Colors</h4>
+                        <div class="space-y-3">
+                            <p>
+                                <span class="color-swatch" style="background-color: var(--primary);"></span>
+                                <code>--primary</code> (Info)
+                            </p>
+                            <p>
+                                <span class="color-swatch" style="background-color: rgba(72,164,99,1);"></span>
+                                <code>--chart-4</code> (Success)
+                            </p>
+                            <p>
+                                <span class="color-swatch" style="background-color: var(--accent);"></span>
+                                <code>--accent</code> (Warning)
+                            </p>
+                            <p>
+                                <span class="color-swatch" style="background-color: var(--destructive-foreground);"></span>
+                                <code>--destructive-foreground</code> (Error)
+                            </p>
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <h4 style="color: var(--primary);">Typography</h4>
+                        <div class="space-y-3">
+                            <p><code>--font-family-nunito</code></p>
+                            <p><code>--text-base</code> (Title)</p>
+                            <p><code>--text-sm</code> (Description)</p>
+                            <p><code>--font-weight-semibold</code> (Title)</p>
+                            <p><code>--font-weight-regular</code> (Description)</p>
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <h4 style="color: var(--primary);">Border Radius</h4>
+                        <div class="space-y-3">
+                            <p><code>--radius-button</code> (Alert container)</p>
+                            <p><code>--radius</code> (Dismiss button)</p>
+                        </div>
+                    </div>
+                    <div class="space-y-3">
+                        <h4 style="color: var(--primary);">Interactive States</h4>
+                        <div class="space-y-3">
+                            <p><code>--ring</code> (Focus ring)</p>
+                            <p><code>--border</code> (Border color)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Usage Example -->
+        <div class="section">
+            <div class="card space-y-4">
+                <h2>Usage Example (React)</h2>
+                <pre>&lt;!-- Basic info alert --&gt;
+&lt;Alert variant="info"&gt;
+  &lt;AlertTitle&gt;Information&lt;/AlertTitle&gt;
+  &lt;AlertDescription&gt;
+    Your session will expire soon.
+  &lt;/AlertDescription&gt;
+&lt;/Alert&gt;
+
+&lt;!-- Dismissible warning alert --&gt;
+&lt;Alert 
+  variant="warning" 
+  dismissible 
+  onDismiss={() =&gt; console.log("Dismissed")}
+&gt;
+  &lt;AlertTitle&gt;Warning&lt;/AlertTitle&gt;
+  &lt;AlertDescription&gt;
+    Please review before continuing.
+  &lt;/AlertDescription&gt;
+&lt;/Alert&gt;
+
+&lt;!-- Success alert without icon --&gt;
+&lt;Alert variant="success" hideIcon&gt;
+  &lt;AlertDescription&gt;
+    Operation completed successfully.
+  &lt;/AlertDescription&gt;
+&lt;/Alert&gt;</pre>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Dismiss alert functionality
+        function dismissAlert(id) {
+            const alert = document.getElementById(id);
+            if (alert) {
+                alert.classList.add('hidden');
+                console.log('Alert dismissed:', id);
+            }
+        }
+
+        // Keyboard support for dismissible alerts
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const focusedElement = document.activeElement;
+                if (focusedElement && focusedElement.classList.contains('alert') && focusedElement.id) {
+                    dismissAlert(focusedElement.id);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
