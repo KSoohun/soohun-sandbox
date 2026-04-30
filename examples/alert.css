@@ -66,6 +66,64 @@
 .al__close:hover         { background: rgba(0, 0, 0, 0.07); border-color: rgba(0, 0, 0, 0.18); }
 .al__close:focus-visible { outline: 2px solid var(--color-text-heading); outline-offset: 2px; }
 
+.al__footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-8);
+  margin-top: var(--space-12);
+}
+
+.al-btn {
+  appearance: none;
+  border: 1px solid transparent;
+  border-radius: var(--radius-md);
+  font-family: var(--font-family-base);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  cursor: pointer;
+  transition: filter 0.15s;
+}
+
+.al-btn:hover { filter: brightness(0.96); }
+
+.al-btn:focus-visible {
+  outline: 2px solid var(--color-text-heading);
+  outline-offset: 2px;
+}
+
+.al-btn--lg {
+  padding: 9px 40px;
+  font-size: var(--font-size-md);
+  line-height: var(--line-height-md);
+}
+
+.al-btn--md {
+  padding: 4px 17px;
+  font-size: var(--font-size-sm);
+  line-height: var(--line-height-sm);
+}
+
+.al-btn--sm {
+  padding: 3px 13px;
+  font-size: var(--font-size-xs);
+  line-height: var(--line-height-xs);
+}
+
+.al-btn--primary {
+  background: var(--color-info-border);
+  color: #fff;
+}
+
+.al--success .al-btn--primary { background: var(--color-success-border); }
+.al--warning .al-btn--primary { background: var(--color-warning-border); }
+.al--error .al-btn--primary { background: var(--color-error-border); }
+
+.al-btn--tertiary-alt {
+  background: transparent;
+  color: var(--color-text-heading);
+}
+
 /* ── Size variants ── */
 .al--sm {
   gap: var(--space-12);
@@ -112,3 +170,29 @@
 
 @media (forced-colors: active) { .al { border: 2px solid ButtonText !important; } }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+.al-story-shell {
+  min-height: 100vh;
+  background: #f6f8fa;
+  padding: 18px;
+}
+
+.al-story-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  max-width: 1480px;
+  margin: 0 auto;
+}
+
+.al-story-col {
+  display: grid;
+  gap: 22px;
+  align-content: start;
+}
+
+@media (max-width: 1200px) {
+  .al-story-grid {
+    grid-template-columns: 1fr;
+  }
+}
