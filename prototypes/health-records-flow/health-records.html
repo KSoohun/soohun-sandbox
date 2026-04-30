@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Health Records - Health Portal</title>
+  <link rel="stylesheet" href="styles/base.css">
+  <link rel="stylesheet" href="styles/health-records.css">
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <h1>Health Portal</h1>
+      <ul class="nav-links">
+        <li><a href="index.html">Dashboard</a></li>
+        <li><a href="health-records.html" class="active">Health Records</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page-header">
+      <h1>Health Records</h1>
+      <p>View and manage your complete medical history</p>
+    </div>
+
+    <div class="filters">
+      <h2>Filter Records</h2>
+      <div class="filter-group">
+        <label>
+          <span>Record Type</span>
+          <select>
+            <option value="all">All Types</option>
+            <option value="lab">Lab Results</option>
+            <option value="visit">Office Visits</option>
+            <option value="imaging">Imaging</option>
+            <option value="procedure">Procedures</option>
+          </select>
+        </label>
+        <label>
+          <span>Date Range</span>
+          <select>
+            <option value="all">All Time</option>
+            <option value="30">Last 30 Days</option>
+            <option value="90">Last 3 Months</option>
+            <option value="365">Last Year</option>
+          </select>
+        </label>
+        <label>
+          <span>Search</span>
+          <input type="text" placeholder="Search records...">
+        </label>
+      </div>
+    </div>
+
+    <div class="accordion">
+      <div class="accordion-item">
+        <button class="accordion-header" aria-expanded="false" aria-controls="record-1">
+          <div class="accordion-title">
+            <h3>Complete Blood Count (CBC)</h3>
+            <div class="accordion-meta">
+              <span>Lab Results</span>
+              <span>•</span>
+              <span>April 15, 2026</span>
+              <span>•</span>
+              <span>Dr. Sarah Johnson</span>
+            </div>
+          </div>
+          <span class="accordion-icon">▼</span>
+        </button>
+        <div class="accordion-content" id="record-1" hidden>
+          <div class="accordion-body">
+            <div class="record-detail">
+              <div class="detail-item">
+                <span class="detail-label">Test Date</span>
+                <span class="detail-value">April 15, 2026</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Provider</span>
+                <span class="detail-value">Dr. Sarah Johnson</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Facility</span>
+                <span class="detail-value">City Medical Lab</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Status</span>
+                <span class="detail-value">Final</span>
+              </div>
+            </div>
+            <div class="record-notes">
+              <h4>Results Summary</h4>
+              <p>All values within normal range. White blood cell count: 7.2 K/uL (normal: 4.5-11.0). Red blood cell count: 4.8 M/uL (normal: 4.5-5.5). Hemoglobin: 14.2 g/dL (normal: 13.5-17.5).</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-header" aria-expanded="false" aria-controls="record-2">
+          <div class="accordion-title">
+            <h3>Annual Physical Examination</h3>
+            <div class="accordion-meta">
+              <span>Office Visit</span>
+              <span>•</span>
+              <span>March 28, 2026</span>
+              <span>•</span>
+              <span>Dr. Michael Chen</span>
+            </div>
+          </div>
+          <span class="accordion-icon">▼</span>
+        </button>
+        <div class="accordion-content" id="record-2" hidden>
+          <div class="accordion-body">
+            <div class="record-detail">
+              <div class="detail-item">
+                <span class="detail-label">Visit Date</span>
+                <span class="detail-value">March 28, 2026</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Provider</span>
+                <span class="detail-value">Dr. Michael Chen</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Location</span>
+                <span class="detail-value">Primary Care Clinic</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Visit Type</span>
+                <span class="detail-value">Annual Physical</span>
+              </div>
+            </div>
+            <div class="record-notes">
+              <h4>Visit Summary</h4>
+              <p>Patient presents for annual physical examination. Blood pressure: 118/76 mmHg. Weight: 165 lbs. Height: 5'9". BMI: 24.4. General health is good. Recommended routine blood work and continued exercise regimen.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-header" aria-expanded="false" aria-controls="record-3">
+          <div class="accordion-title">
+            <h3>Chest X-Ray</h3>
+            <div class="accordion-meta">
+              <span>Imaging</span>
+              <span>•</span>
+              <span>February 10, 2026</span>
+              <span>•</span>
+              <span>Dr. Emily Rodriguez</span>
+            </div>
+          </div>
+          <span class="accordion-icon">▼</span>
+        </button>
+        <div class="accordion-content" id="record-3" hidden>
+          <div class="accordion-body">
+            <div class="record-detail">
+              <div class="detail-item">
+                <span class="detail-label">Exam Date</span>
+                <span class="detail-value">February 10, 2026</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Radiologist</span>
+                <span class="detail-value">Dr. Emily Rodriguez</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Facility</span>
+                <span class="detail-value">Regional Imaging Center</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Study Type</span>
+                <span class="detail-value">Chest X-Ray, 2 Views</span>
+              </div>
+            </div>
+            <div class="record-notes">
+              <h4>Findings</h4>
+              <p>The lungs are clear bilaterally with no evidence of infiltrate, consolidation, or effusion. The cardiac silhouette is normal in size. No acute cardiopulmonary abnormality detected. Impression: Normal chest radiograph.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="accordion-item">
+        <button class="accordion-header" aria-expanded="false" aria-controls="record-4">
+          <div class="accordion-title">
+            <h3>Lipid Panel</h3>
+            <div class="accordion-meta">
+              <span>Lab Results</span>
+              <span>•</span>
+              <span>January 22, 2026</span>
+              <span>•</span>
+              <span>Dr. Sarah Johnson</span>
+            </div>
+          </div>
+          <span class="accordion-icon">▼</span>
+        </button>
+        <div class="accordion-content" id="record-4" hidden>
+          <div class="accordion-body">
+            <div class="record-detail">
+              <div class="detail-item">
+                <span class="detail-label">Test Date</span>
+                <span class="detail-value">January 22, 2026</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Provider</span>
+                <span class="detail-value">Dr. Sarah Johnson</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Facility</span>
+                <span class="detail-value">City Medical Lab</span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">Status</span>
+                <span class="detail-value">Final</span>
+              </div>
+            </div>
+            <div class="record-notes">
+              <h4>Results Summary</h4>
+              <p>Total Cholesterol: 182 mg/dL (Desirable: <200). LDL Cholesterol: 98 mg/dL (Optimal: <100). HDL Cholesterol: 58 mg/dL (Good: >40). Triglycerides: 128 mg/dL (Normal: <150). All values within healthy ranges. Continue current diet and exercise plan.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="scripts/accordion.js"></script>
+</body>
+</html>

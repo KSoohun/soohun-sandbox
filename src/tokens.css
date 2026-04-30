@@ -1,0 +1,98 @@
+/* ═══════════════════════════════════════════════════════════════
+   Ontada Design System — tokens.css
+   Global CSS custom properties.
+   Import once at the root of your project. Do NOT modify values
+   here for individual components — create component-scoped
+   overrides in the component's own CSS module instead.
+   ═══════════════════════════════════════════════════════════════ */
+
+:root {
+  /* ── Typography ── */
+  --font-family-base: 'Nunito', sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+
+  --font-size-xs: 12px; /* semibold-x-small body */
+  --font-size-sm: 14px; /* semibold-small body / bold-small title */
+  --font-size-md: 16px; /* semibold-medium body / bold-medium title */
+  --font-size-lg: 18px; /* bold-large title */
+
+  --line-height-xs: 1.3333em;
+  --line-height-sm: 1.2857em;
+  --line-height-md: 1.25em;
+  --line-height-lg: 1.2222em;
+
+  --letter-spacing-xs: 0.001em;
+  --letter-spacing-sm: normal;
+  --letter-spacing-md: -0.001em;
+  --letter-spacing-lg: -0.002em;
+
+  /* ── Text colors ── */
+  --color-text-primary: #181818;
+  --color-text-muted: #627386;
+  --color-text-heading: #1e394e;
+
+  /* ── Icon ── */
+  --color-icon-close: #627386; /* single global color for all close/dismiss icons */
+
+  /* ── Status: info ── */
+  --color-info-bg: #f2f6fa;
+  --color-info-border: #1e394e;
+  --color-info-icon: #627386;
+
+  /* ── Status: success ── */
+  --color-success-bg: #e7f4e4;
+  --color-success-border: #277036;
+  --color-success-icon: #2e8540;
+
+  /* ── Status: warning ── */
+  --color-warning-bg: #f9e6cf;
+  --color-warning-border: #975220;
+  --color-warning-icon: #b05d23;
+
+  /* ── Status: error ── */
+  --color-error-bg: #f9e9e8;
+  --color-error-border: #c53026;
+  --color-error-icon: #c53026;
+
+  /* ── Shadow ── */
+  --shadow-default: 0px 4px 8px 0px rgba(38, 44, 54, 0.15);
+
+  /* ── Spacing ── */
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-24: 24px;
+  --space-40: 40px;
+
+  /* ── Border radius ── */
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+
+  /* ── Alert component sizing ──
+     Source: Figma Alert component set, Release 6.0.0
+     Note: ±1px text vertical alignment difference between Figma and browser
+     is expected and within accepted tolerance (Figma uses its own rendering
+     engine; browsers use OS font engines — CoreText/DirectWrite). */
+  --alert-icon-h-sm: 32px;
+  --alert-icon-h-md: 36px;
+  --alert-icon-h-lg: 40px;
+
+  --alert-icon-sz-sm: 16px;
+  --alert-icon-sz-md: 24px;
+  --alert-icon-sz-lg: 32px;
+
+  /* Close button: width 24px (WCAG 2.5.8 min touch target),
+     height matches icon container height per size */
+  --alert-close-w: 24px;
+  --alert-close-sz-sm: 12px;
+  --alert-close-sz-md: 16px;
+  --alert-close-sz-lg: 20px;
+
+  --alert-min-w-sm: 288px;
+  --alert-min-w-md: 576px;
+  --alert-min-w-lg: 992px;
+}

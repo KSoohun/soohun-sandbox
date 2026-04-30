@@ -1,6 +1,6 @@
-# Sandbox
+# OH Component Library
 
-A clean playground for testing and experimenting with HTML, CSS, and TypeScript.
+A component library playground for practicing and experimenting with React, Web Components, and TypeScript.
 
 ## 🚀 Quick Start
 
@@ -12,31 +12,19 @@ npm install
 
 ### Development
 
-Start the development server with hot reload:
+Start Storybook to explore components:
 
 ```bash
-npm run dev
+npm run storybook
 ```
 
-The app will open at [http://localhost:3000](http://localhost:3000)
-
-### Build
-
-Compile TypeScript and build for production:
+Build the library:
 
 ```bash
 npm run build
 ```
 
-Preview the production build:
-
-```bash
-npm run preview
-```
-
-### Type Checking
-
-Run TypeScript type checking without emitting files:
+Type checking:
 
 ```bash
 npm run type-check
@@ -46,59 +34,106 @@ npm run type-check
 
 ```
 sandbox/
-├── src/                    # TypeScript source files
-│   ├── index.ts           # Main entry point
-│   └── utils.ts           # Utility functions
-├── public/                # Static assets
-│   ├── index.html         # Main HTML file
-│   └── styles.css         # Global styles
-├── examples/              # Old demo files (reference)
-├── stories/               # Storybook stories
-├── dist/                  # Built files (generated)
-├── tsconfig.json          # TypeScript configuration
-├── vite.config.ts         # Vite configuration
-└── package.json           # Project dependencies
+├── src/
+│   ├── tokens/              # Design tokens (colors, spacing, typography)
+│   │   ├── colors.ts
+│   │   ├── spacing.ts
+│   │   ├── typography.ts
+│   │   └── index.ts
+│   ├── components/          # Component library
+│   │   ├── Button/         # React button component
+│   │   │   ├── Button.tsx
+│   │   │   ├── Button.css
+│   │   │   ├── Button.stories.tsx
+│   │   │   └── index.ts
+│   │   ├── Alert/          # Web component
+│   │   │   ├── Alert.ts
+│   │   │   └── index.ts
+│   │   └── index.ts
+│   └── index.ts            # Main entry point
+├── docs/                    # Documentation
+├── examples/               # Old demos (archived)
+├── stories/                # Legacy Storybook stories
+├── .storybook/             # Storybook configuration
+├── tsconfig.json           # TypeScript configuration
+└── package.json            # Dependencies and scripts
 ```
 
-## 🎮 How to Use
+## 🎨 Design System
 
-1. **Edit TypeScript**: Modify files in `src/` folder
-2. **Edit HTML**: Modify `public/index.html`
-3. **Edit Styles**: Modify `public/styles.css`
-4. **Add new files**: Create new `.ts` files in `src/` and import them
+This library includes a complete design token system:
 
-The dev server will automatically reload when you save changes.
+- **Colors**: Primary, secondary, semantic colors
+- **Spacing**: Consistent spacing scale
+- **Typography**: Font families, sizes, weights
+- **Shadows**: Shadow scales for depth
+- **Border Radius**: Consistent border radii
+- **Transitions**: Standard animation timings
 
-## 🧩 Storybook (Optional)
+## 🧩 Components
 
-Run Storybook for component development:
+### React Components
 
-```bash
-npm run storybook
-```
+- **Button**: Flexible button with variants, sizes, and loading states
 
-Build Storybook:
+### Web Components
 
-```bash
-npm run build-storybook
-```
+- **Alert**: Native web component for alert messages
 
-## 📝 Examples
+## 📖 Documentation
 
-The `examples/` folder contains old demos for reference. These are not part of the active development environment.
-
-## 💡 Tips
-
-- Use TypeScript's type system to catch errors early
-- Install VS Code TypeScript extension for better IntelliSense
-- Check the browser console for any runtime errors
-- Use the Network tab in DevTools to debug loading issues
+See [docs/README.md](docs/README.md) for detailed documentation on:
+- Using design tokens
+- Creating new components
+- Component APIs and props
+- Best practices
 
 ## 🛠️ Tech Stack
 
 - **TypeScript** - Type-safe JavaScript
+- **React** - Component framework
+- **Web Components** - Native custom elements
 - **Vite** - Fast build tool and dev server
 - **Storybook** - Component development environment
+
+## 💡 Usage
+
+### Import Components
+
+```typescript
+// Import React components
+import { Button } from './components/Button';
+
+// Import design tokens
+import { colors, spacing, typography } from './tokens';
+```
+
+### Use Web Components
+
+```html
+<!-- Use web components directly in HTML -->
+<oh-alert variant="info" title="Hello" dismissible>
+  This is a web component!
+</oh-alert>
+```
+
+## 🎯 Practice Goals
+
+This sandbox is designed to help you practice:
+
+1. Building reusable React components
+2. Creating native Web Components
+3. Implementing design systems with tokens
+4. Writing TypeScript with proper typing
+5. Using Storybook for component development
+6. Following accessibility best practices
+
+## 📚 Learning Resources
+
+- [React Documentation](https://react.dev/)
+- [Web Components MDN](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
+- [TypeScript Handbook](https://www.typescriptlang.org/docs/)
+- [Storybook Tutorials](https://storybook.js.org/tutorials/)
 
 ---
 
