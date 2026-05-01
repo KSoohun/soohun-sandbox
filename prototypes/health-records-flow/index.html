@@ -17,60 +17,143 @@
       </ul>
     </div>
   </nav>
+      <div class="site-shell">
+        <header>
+          <div class="top-strip">
+            <div class="top-strip__inner">
+              <div class="brand-line">
+                <span class="brand">ontadaHEALTH</span>
+                <span>Lorem ipsum dolor sit amet</span>
+              </div>
+              <div class="utility-links" aria-label="Account links">
+                <span>My Account</span>
+                <span>Sally</span>
+                <span>Help</span>
+                <a class="logout" href="#">Logout</a>
+              </div>
+            </div>
+          </div>
 
-  <main>
-    <div class="dashboard-header">
-      <h1>Welcome to Your Health Dashboard</h1>
-      <p>Manage your health information and access your medical records securely.</p>
-    </div>
+          <nav class="primary-nav" aria-label="Primary">
+            <div class="primary-nav__inner">
+              <a class="nav-tile" href="#">
+                <span class="nav-tile__icon" aria-hidden="true">☰</span>
+                <span>Menu</span>
+              </a>
+              <a class="nav-tile active" href="index.html">
+                <span class="nav-tile__icon" aria-hidden="true">◉</span>
+                <span>For Me</span>
+              </a>
+              <a class="nav-tile" href="health-records.html">
+                <span class="nav-tile__icon" aria-hidden="true">✚</span>
+                <span>Health Records</span>
+              </a>
+              <a class="nav-tile" href="#">
+                <span class="nav-tile__icon" aria-hidden="true">✓</span>
+                <span>Appointments</span>
+              </a>
+              <a class="nav-tile" href="#">
+                <span class="nav-tile__icon" aria-hidden="true">✉</span>
+                <span>Messages</span>
+              </a>
+              <a class="nav-tile" href="#">
+                <span class="nav-tile__icon" aria-hidden="true">♡</span>
+                <span>Care Team</span>
+              </a>
+            </div>
+          </nav>
+        </header>
 
+        <main>
+          <div class="dashboard-header">
+            <h1>Hello Sally</h1>
+          </div>
+
+          <div class="dashboard-columns">
+            <section class="dashboard-stack">
+              <article class="dashboard-card card">
+                <div class="card-head">
+                  <h2>Next Appointment</h2>
+                  <p>In 3 Days</p>
+                </div>
+                <p>November 16, 2023 (Tuesday) 9AM</p>
+                <p>Texas Oncology, The Woodlands Location</p>
+                <p>9180 Pinecroft Dr Suite 600, The Woodlands, TX 77380</p>
+                <a href="#" class="card-link">View All Appt</a>
+              </article>
+
+              <article class="dashboard-card card">
+                <div class="card-head">
+                  <h2>Unread Messages</h2>
+                  <p>Showing 3/5</p>
+                </div>
+                <ul class="list-rows">
+                  <li>Practice Name: Lorem ipsum dolor sit amet</li>
+                  <li>Practice Name: Lorem ipsum dolor sit amet</li>
+                  <li>Practice Name: Lorem ipsum dolor sit amet</li>
+                </ul>
+                <a href="#" class="card-link">View All Messages</a>
+              </article>
+
+              <article class="dashboard-card card">
+                <div class="card-head">
+                  <h2>Billing</h2>
+                </div>
+                <p>You have unpaid bills. View and pay them in your Bill Pay portal.</p>
+                <a href="#" class="btn btn-primary">Go to Bills</a>
+              </article>
+
+              <article class="dashboard-card card">
+                <div class="card-head">
+                  <h2>Education</h2>
+                  <p>Total 3</p>
+                </div>
+                <ul class="list-rows compact">
+                  <li>Trastuzumab + Pertuzumab</li>
+                  <li>Trastuzumab + Pertuzumab</li>
+                  <li>What to expect with your first...</li>
+                </ul>
+                <a href="#" class="card-link">View All Educations</a>
+              </article>
+            </section>
+
+            <section class="dashboard-stack">
+              <article class="dashboard-card card">
+                <div class="card-head">
+                  <h2>Recent Results</h2>
+                  <p>Showing 3/6</p>
+                </div>
+                <ul class="list-rows compact">
+                  <li>CBC Lorem ipsum dolor sit amet</li>
+                  <li>[BUN] Lorem ipsum dolor sit...</li>
+                  <li>[BUN] Lorem ipsum dolor sit...</li>
+                </ul>
+                <a href="#" class="card-link">View All Results</a>
+              </article>
+
+              <article class="dashboard-card card">
+                <div class="card-head">
+                  <h2>Forms</h2>
+                  <p>Total 8</p>
+                </div>
+                <p>You have 8 forms to complete.</p>
+                <a href="#" class="btn btn-primary">Go to Forms</a>
+              </article>
+
+              <article class="dashboard-card card">
+                <div class="card-head">
+                  <h2>Care Team</h2>
+                  <p>Showing 3/5</p>
+                </div>
+                <p>Texas Oncology, The Woodlands Location</p>
+                <p>9180 Pinecroft Dr Suite 600, The Woodlands, TX 77380</p>
+                <ul class="list-rows compact">
+                  <li>Priya Patel, MD</li>
+                  <li>Priya Patel, MD</li>
+                </ul>
+                <a href="#" class="card-link">View All Care Team</a>
+              </article>
+            </section>
+          </div>
+        </main>
     <div class="dashboard-grid">
-      <div class="dashboard-card">
-        <h3>📋 Health Records</h3>
-        <p>View and manage your complete medical history, test results, and prescriptions.</p>
-        <a href="health-records.html" class="btn btn-primary">View Records</a>
-      </div>
-
-      <div class="dashboard-card">
-        <h3>📅 Appointments</h3>
-        <p>Schedule and manage your upcoming medical appointments with healthcare providers.</p>
-        <a href="#" class="btn btn-secondary">View Appointments</a>
-      </div>
-
-      <div class="dashboard-card">
-        <h3>💊 Prescriptions</h3>
-        <p>Manage your medications, refills, and prescription history in one place.</p>
-        <a href="#" class="btn btn-secondary">View Prescriptions</a>
-      </div>
-
-      <div class="dashboard-card">
-        <h3>👤 Profile</h3>
-        <p>Update your personal information, contact details, and insurance information.</p>
-        <a href="#" class="btn btn-secondary">Edit Profile</a>
-      </div>
-    </div>
-
-    <section class="quick-actions">
-      <h2>Quick Actions</h2>
-      <div class="actions-list">
-        <a href="health-records.html" class="action-link">
-          <span>📄</span>
-          <span>View Health Records</span>
-        </a>
-        <a href="#" class="action-link">
-          <span>📥</span>
-          <span>Download Records</span>
-        </a>
-        <a href="#" class="action-link">
-          <span>📧</span>
-          <span>Message Provider</span>
-        </a>
-        <a href="#" class="action-link">
-          <span>🔔</span>
-          <span>Notifications</span>
-        </a>
-      </div>
-    </section>
-  </main>
-</body>
-</html>

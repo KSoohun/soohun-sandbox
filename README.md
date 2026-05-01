@@ -51,9 +51,9 @@ sandbox/
 │   │   │   └── index.ts
 │   │   └── index.ts
 │   └── index.ts            # Main entry point
+├── prototypes/             # Page-level HTML/CSS/JS flows
 ├── docs/                    # Documentation
 ├── examples/               # Old demos (archived)
-├── stories/                # Legacy Storybook stories
 ├── .storybook/             # Storybook configuration
 ├── tsconfig.json           # TypeScript configuration
 └── package.json            # Dependencies and scripts
